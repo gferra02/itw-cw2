@@ -1,0 +1,81 @@
+---
+# Front matter comment to ensure Jekyll properly reads file.
+---
+
+/*
+ * Personal student space on DCS server stylesheet
+ * Author: Ginestra Ferraro
+ */
+
+/* Variables */
+
+$blue: #103C4D;
+$brown: #35302F;
+$dark-navy: #16242F;
+$gray: #727072;
+
+/* Globals */
+
+body {
+    background: lighten($dark-navy, 80%);
+    color: $brown;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+}
+
+header,
+footer {
+    background: $brown;
+    color: white;
+
+    a {
+        color: lighten($blue, 50%);
+    }
+
+    small {
+        color: lighten($gray, 20%);
+    }
+
+    h1 {
+        margin: 0 0 12px 0;
+    }
+
+    h2 {
+        margin: 20px 0 0 0;
+    }
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 10px 20px;
+}
+
+/* Typography */
+
+/* Open Sans Condensed: https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700; */
+
+@font-face {
+    font-family: "Open Sans Condensed";
+    src: url("../assets/fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf") format("trutype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed";
+    src: url("../assets/fonts/Open_Sans_Condensed/OpenSansCondensed-LightItalic.ttf") format("trutype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Open Sans Condensed";
+    src: url("../assets/fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf") format("trutype");
+    font-weight: 700;
+}
