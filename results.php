@@ -19,13 +19,18 @@
         <div class="wrapper">
             <p><a class="button" a href="index.html">< Back</a></p>
             <?php
-                if(!empty($_POST['country'])) {
+                if(!empty($_GET['country'])) {
                     foreach ($_GET['country'] as $country_selected) {
                         print "<p>".$country_selected."</p>";
                     }
                 } else {
                     print "<p>You need to select at least one country for me to give you something!</p>";
                 }
+
+                // How to count
+                $count = count($_GET['country']);
+
+                print "<p>No. of countries selected: ".$count;
 
 
                 if ($year >= 1901 && $year <= 2017) {
