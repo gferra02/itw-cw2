@@ -36,10 +36,12 @@ a {
     }
 }
 
-button {
+button,
+.button {
     cursor: pointer;
     font-family: "Open Sans Condensed", sans-serif;
     font-size: 18px;
+    font-weight: normal;
     padding: 8px 12px;
 }
 
@@ -64,12 +66,14 @@ button {
     }
 }
 
+.button,
 .submit {
     background: $blue;
     color: white;
 
     &:hover {
         background: darken($blue, 50%);
+        color: white;
     }
 }
 
