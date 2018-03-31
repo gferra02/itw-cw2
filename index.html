@@ -23,7 +23,7 @@
 
             <hr>
 
-            <form id="compare">
+            <form id="compare" action="country-info.php" method="GET">
                 <fieldset>
                     <legend>What Country/ies are you interested in?</legend>
                     <input type="checkbox" id="fr" name="country" value="france">
@@ -60,8 +60,10 @@
                     <label for="">Imports</label>
                 </fieldset>
 
-                <button class="reset" type="reset">Reset</button>
-                <button class="submit" type="button" id="trigger-results" form="query">Compare</button>
+                <div class="button-group">
+                    <button class="submit" type="button" id="trigger-results" form="query">Compare</button> 
+                    <button class="reset" type="reset">Reset</button>
+                </div>
             </form>
 
             <hr>
