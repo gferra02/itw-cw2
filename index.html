@@ -17,7 +17,70 @@
     </header>
     <main>
         <div class="wrapper">
-            <p>I confirm that this report is entirely my own work, except where explicitly stated otherwise.</p>
+            <p><em>I confirm that this report is entirely my own work, except where explicitly stated otherwise.</em></p>
+
+            <p class="todo"><strong>TODO:</strong> some explanation of the dataset and what to do with it</p>
+
+            <hr>
+
+            <form id="compare">
+                <fieldset>
+                    <legend>What Country/ies are you interested in?</legend>
+                    <input type="checkbox" id="fr" name="country" value="france">
+                    <label for="fr">France</label>
+                    <input type="checkbox" id="it" name="country" value="italy">
+                    <label for="it">Italy</label>
+                    <input type="checkbox" id="de" name="country" value="germany">
+                    <label for="de">Germany</label>
+                    <input type="checkbox" id="gb" name="country" value="uk">
+                    <label for="gb">United Kingdom</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Select max 5 properties</legend>
+                    <input type="checkbox" id="land" name="property" value="land">
+                    <label for="">Land boundaries</label>
+                    <input type="checkbox" id="coastline" name="property" value="coastline">
+                    <label for="">Coastline</label>
+                    <input type="checkbox" id="elevation" name="property" value="elevation">
+                    <label for="">Elevation</label>
+                    <input type="checkbox" id="population" name="property" value="population">
+                    <label for="">Population</label>
+                    <input type="checkbox" id="age" name="property" value="age">
+                    <label for="">Median age</label>
+                    <input type="checkbox" id="unemployment" name="property" value="unemployment">
+                    <label for="">Unemployment rate</label>
+                    <input type="checkbox" id="govType" name="property" value="govType">
+                    <label for="">Government type</label>
+                    <input type="checkbox" id="gdp" name="property" value="gdp">
+                    <label for="">GDP per capita (PPP)</label>
+                    <input type="checkbox" id="exports" name="property" value="exports">
+                    <label for="">Exports</label>
+                    <input type="checkbox" id="imports" name="property" value="imports">
+                    <label for="">Imports</label>
+                </fieldset>
+
+                <button class="reset" type="reset">Reset</button>
+                <button class="submit" type="button" id="trigger-results" form="query">Compare</button>
+            </form>
+
+            <hr>
+
+            <h2>Objectives of the coursework</h2>
+            <h3>The task</h3>
+            <p>You will be working with JSON data derived from The World Factbook, published by the CIA. The whole factbook is over 14MB, so you will instead work with data from four countries: France, Germany, Italy and the UK. The JSON data is available in the files fr.json, gm.json, it.json and uk.json, respectively. You should save copies of these files into your own web space.</p>
+
+            <p>The product of the coursework will be an HTML page using which a user can compare data regarding (some subset of) the four countries. The HTML page should contain appropriate form controls for user input (text boxes, drop-down selections and/or check boxes). The user input should be processed by a PHP script residing on the DCS titan web server, with an HTML page containing the output being returned to the user.</p>
+
+            <p>The HTML page should allow a user to:</p>
+
+            <ol>
+                <li>select one to four of the above countries</li>
+                <li>select up to 5 property values out of a total of 10 to compare; you are free to choose the properties yourself, but they might include those such as geographical area (land, water, etc), coastline length, life expectancy, population, birth rate, death rate, population growth rate, (youth) unemployment rate, population below poverty line, labour force by occupation, etc.</li>
+                <li>view some/all of the results as a chart/diagram</li>
+            </ol>
+
+            <p>The result should be returned as an HTML table, formatted appropriately. The techniques you need to use are discussed in the slides on Server-side processing and those on PHP and JSON in particular. For item (3) above, you are free to use any Javascript library to produce the charts/diagrams. Your solution should work in either Chrome or Firefox. Please specify which browser you used in a comment at the start of your HTML file.</p>
         </div>
     </main>
     <footer>

@@ -25,6 +25,22 @@ body {
     margin: 0;
 }
 
+button {
+    cursor: pointer;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 18px;
+    padding: 8px 12px;
+}
+
+.reset {
+    border: 1px solid lighten($gray, 50%);
+}
+
+.submit {
+    background: $blue;
+    color: white;
+}
+
 header,
 footer {
     background: $brown;
@@ -50,6 +66,18 @@ footer {
 h1, h2, h3 {
     font-weight: 300;
 }
+
+/* 
+ * TEMP STYLING
+ * Should be removed once finished with the coursework
+ */
+
+.todo {
+    background: #ff0;
+    padding: 0 7px;
+}
+
+/* End of TEMP Styling */
 
 .wrapper {
     margin: 0 auto;
