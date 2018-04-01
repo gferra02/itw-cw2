@@ -19,18 +19,27 @@
         <div class="wrapper">
             <p><a class="button" a href="index.html">< Back</a></p>
             <?php
+                // Count how many Countries have been selected
+                $count = count($_GET['country']);
+
+                print "<p>No. of countries selected: " . $count . "</p>";
                 if(!empty($_GET['country'])) {
+                    $i = 1; // Using this var to check last elements in array
+                    print "<p><strong>Countries selected: </strong>";
                     foreach ($_GET['country'] as $country_selected) {
-                        print "<p>".$country_selected."</p>";
+                        if ($i != $count) {
+                          print $country_selected . ", ";
+                        } else {
+                          print $country_selected . ".";
+                        }
+
+                        $i++;
                     }
+                    print "</p>";
+
                 } else {
                     print "<p>You need to select at least one country for me to give you something!</p>";
                 }
-
-                // How to count
-                $count = count($_GET['country']);
-
-                print "<p>No. of countries selected: ".$count;
 
 
                 if ($year >= 1901 && $year <= 2017) {
