@@ -20,25 +20,63 @@
             <p><a class="button" a href="index.html">< Back</a></p>
             <?php
                 // Count how many Countries have been selected
-                $count = count($_GET['country']);
+                $country_count = count($_GET['country']);
 
-                print "<p>No. of countries selected: " . $count . "</p>";
+                print "<p>No. of countries selected: " . $country_count . "</p>";
                 if(!empty($_GET['country'])) {
                     $i = 1; // Using this var to check last elements in array
+
                     print "<p><strong>Countries selected: </strong>";
+
                     foreach ($_GET['country'] as $country_selected) {
-                        if ($i != $count) {
+                        if ($i != $country_count) {
                           print $country_selected . ", ";
                         } else {
                           print $country_selected . ".";
                         }
 
                         $i++;
+
+                        switch ($country_selected) {
+                            case "France":
+                                $url[i] = "json/fr.json?";
+                                echo $url[i];
+                                break;
+                            case "Germany":
+                                $url[i] = "json/gm.json?";
+                                echo $url[i];
+                                break;
+                            case "Italy":
+                                $url[i] = "json/it.json?";
+                                echo $url[i];
+                                break;
+                            case "UK":
+                                $url[i] = "json/uk.json?";
+                                echo $url[i];
+                                break;
+                        }
                     }
+
                     print "</p>";
 
+                    // Count how many properties have been selected
+                    $property_count = count($_GET['property']);
+
+                    print $property_count;
+
+                    if ($property_count > 0 && $property_count < 6) {
+
+                        foreach ($_GET['property'] as $property_selected) {
+                          print $property_selected . " ";
+                        }
+                    } else {
+                        // Basic error checking
+                        print "<p class=\"error\">Please select between 1 and 5 properties.</p>";
+                    }
+
                 } else {
-                    print "<p>You need to select at least one country for me to give you something!</p>";
+                    // Basic error checking
+                    print "<p class=\"error\">You need to select at least one country for me to give you something!</p>";
                 }
 
 
