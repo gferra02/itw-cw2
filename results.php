@@ -31,12 +31,12 @@
                     // Count how many properties have been selected
                     $property_count = count($_GET['property']);
 
-                    print $property_count;
+                    print "No. of properties selected: " . $property_count . ", ";
 
                     if ($property_count > 0 && $property_count < 6) {
 
                         foreach ($_GET['property'] as $property_selected) {
-                          print $property_selected . " ";
+                          print "Property selected: " . $property_selected . ", Countries selected: ";
                         }
                     } else {
                         // Basic error checking
@@ -54,20 +54,33 @@
 
                         switch ($country_selected) {
                             case "France":
-                                $url[i] = "json/fr.json?";
-                                echo $url[i];
+                                $url[i] = "http://www.dcs.bbk.ac.uk/~ptw/teaching/IWT/coursework/fr.json";
+                                $string = file_get_contents($url[i]);
+                                # Read the JSON output into an associative array
+                                $result  = json_decode($string);
+                                echo $result;
+                                # Find out how many land boundaries details
+                                $num_geo = count($result['Geography']);
+                                print " Num of geo: " . $num_geo;
+                                for ($i = 0; $i < $num_geo; $i++) {
+                                  # Print out the details
+                                  $details = $result['Geography'][$i]['Land Boundaries'][$i];
+                                  $printme = var_dump($result['Geography'][$i]['Land Boundaries']['metropolitan France - total']['text']);
+                                  print "<li>in $printme to </li>\n";
+                                }
+                                echo " URL: " . $url[i];
                                 break;
                             case "Germany":
                                 $url[i] = "json/gm.json?";
-                                echo $url[i];
+                                echo " URL: " . $url[i];
                                 break;
                             case "Italy":
                                 $url[i] = "json/it.json?";
-                                echo $url[i];
+                                echo " URL: " . $url[i];
                                 break;
                             case "UK":
                                 $url[i] = "json/uk.json?";
-                                echo $url[i];
+                                echo " URL: " . $url[i];
                                 break;
                         }
                     }
@@ -85,7 +98,7 @@
                 $year = 1979;
 
                 if ($year >= 1901 && $year <= 2017) {
-                  $url = 'http://api.nobelprize.org/v1/prize.json?year' . $year;
+                  $url = 'http://api.nobelprize.org/v1/prize.json?year=' . $year;
                   $string = file_get_contents($url);
 
                   # Read the JSON output into an associative array
