@@ -28,6 +28,21 @@
 
                     print "<p><strong>Countries selected: </strong>";
 
+                    // Count how many properties have been selected
+                    $property_count = count($_GET['property']);
+
+                    print $property_count;
+
+                    if ($property_count > 0 && $property_count < 6) {
+
+                        foreach ($_GET['property'] as $property_selected) {
+                          print $property_selected . " ";
+                        }
+                    } else {
+                        // Basic error checking
+                        print "<p class=\"error\">Please select between 1 and 5 properties.</p>";
+                    }
+
                     foreach ($_GET['country'] as $country_selected) {
                         if ($i != $country_count) {
                           print $country_selected . ", ";
@@ -59,29 +74,18 @@
 
                     print "</p>";
 
-                    // Count how many properties have been selected
-                    $property_count = count($_GET['property']);
-
-                    print $property_count;
-
-                    if ($property_count > 0 && $property_count < 6) {
-
-                        foreach ($_GET['property'] as $property_selected) {
-                          print $property_selected . " ";
-                        }
-                    } else {
-                        // Basic error checking
-                        print "<p class=\"error\">Please select between 1 and 5 properties.</p>";
-                    }
-
                 } else {
                     // Basic error checking
                     print "<p class=\"error\">You need to select at least one country for me to give you something!</p>";
                 }
 
 
+                // DELETE ONCE DONE
+
+                $year = 1979;
+
                 if ($year >= 1901 && $year <= 2017) {
-                  $url = 'http://api.nobelprize.org/v1/prize.json?year=' . $year;
+                  $url = 'http://api.nobelprize.org/v1/prize.json?year' . $year;
                   $string = file_get_contents($url);
 
                   # Read the JSON output into an associative array
