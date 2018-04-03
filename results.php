@@ -27,50 +27,43 @@
                 $country_count = count($_GET['country']);
 
                 print "<p>No. of countries selected: " . $country_count . "</p>";
+
                 if(!empty($_GET['country'])) {
-                    $i = 1; // Using this var to check last elements in array
-
-                    print "<p><strong>Countries selected: </strong>";
-
                     // Count how many properties have been selected
                     $property_count = count($_GET['property']);
 
-                    print "No. of properties selected: " . $property_count . ", ";
-
                     if ($property_count > 0 && $property_count < 6) {
 
+                        print "<table><thead><tr><th>Country</th>";
+
                         foreach ($_GET['property'] as $property_selected) {
+                            print "<th>$property_selected</th>";
+                        }
+
+                        print "</tr></thead><tbody>";
+
+                        foreach ($_GET['property'] as $property_selected) {
+                            print "<tr>";
                             foreach ($_GET['country'] as $country_selected) {
-                                if ($i != $country_count) {
-                                  print $country_selected . ", ";
-                                } else {
-                                  // Fullstop after the last element.
-                                  print $country_selected . ".";
-                                }
-
-                                $i++;
-
+                                print "<td>" . $country_selected . "</td>";
                                 // Path to json levels
                                 switch ($property_selected) {
                                   // Land boundaries, Coastline, Elevation
                                   case "Land boundaries":
                                   case "Coastline":
                                   case "Elevation":
-                                    // $path_to_data[i] = "$result['Geography']";
-                                    echo "path_to_data: " . $property_selected[i];
+                                    $path_to_data[j] = "Geography";
                                     break;
 
                                   // Population, Median age
                                   case "Population":
                                   case "Median age":
-                                    // $path_to_data[i] = "$result['People and Society']";
-                                    echo "path_to_data: " . [i];
+                                    $path_to_data[j] = "People and Society";
                                     break;
 
                                   // Government type
                                   case "Government type":
-                                    // $path_to_data[i] = "$result['Government']";
-                                    echo "path_to_data: " . [i];
+                                    $path_to_data[j] = "Government";
                                     break;
 
                                   // GDP - per capita (PPP), Unemployment rate, Exports, Imports
@@ -78,8 +71,7 @@
                                   case "Unemployment rate":
                                   case "Exports":
                                   case "Imports":
-                                    // $path_to_data[i] = "$result['Economy']";
-                                    echo "path_to_data: " . [i];
+                                    $path_to_data[j] = "Economy";
                                     break;
                                 }
 
@@ -90,17 +82,11 @@
                                         # Read the JSON output into an associative array
                                         $result  = json_decode($string, true);
 
-                                        # Find out how many land boundaries details
-                                        $num_geo = count($result['Geography']);
-                                        $num_land = count($result['Geography']['Land boundaries']);
-
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
-                                        echo '<p>Property selected: ' . $property_selected . '</p>';
-                                        foreach ($result['Geography'][$property_selected] as $key => $value) {
+                                        // echo '<p>Property selected: ' . $property_selected . '</p>';
+                                        foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
                                           echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
                                         }
-
-                                        echo " URL: " . $url[i] . "</p>";
                                         break;
                                     case "Germany":
                                         $url[i] = $base_url . "gm.json?";
@@ -122,9 +108,6 @@
                         // Basic error checking on properties
                         print "<p class=\"error\">Please select between 1 and 5 properties.</p>";
                     }
-
-                    print "</p>";
-
                 } else {
                     // Basic error checking on country
                     print "<p class=\"error\">You need to select at least one country for me to give you something!</p>";
