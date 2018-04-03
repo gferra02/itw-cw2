@@ -19,6 +19,10 @@
         <div class="wrapper">
             <p><a class="button" a href="index.html">< Back</a></p>
             <?php
+                /* Settings */
+                // Base URL
+                $base_url = __DIR__ . "/json/";
+
                 // Count how many Countries have been selected
                 $country_count = count($_GET['country']);
 
@@ -43,10 +47,44 @@
                         print "<p class=\"error\">Please select between 1 and 5 properties.</p>";
                     }
 
+                    // Path to json levels
+
+/*
+                    switch ($property_selected) {
+                      // Land boundaries, Coastline, Elevation
+                      case "Land boundaries":
+                      case "Coastline":
+                      case "Elevation":
+                        $path_to_data = "$result['Geography']";
+                        break;
+
+                      // Population, Median age
+                      case "Population":
+                      case "Median age":
+                        $path_to_data = "$result['People and Society']";
+                        break;
+
+                      // Government type
+                      case "Government type":
+                        $path_to_data = "$result['Government']";
+                        break;
+
+                      // GDP - per capita (PPP), Unemployment rate, Exports, Imports
+                      case "GDP - per capita (PPP)":
+                      case "Unemployment rate":
+                      case "Exports":
+                      case "Imports":
+                        $path_to_data = "$result['Economy']";
+                        break;
+                    }
+
+                    echo "$path_to_data: " . $path_to_data;
+*/
                     foreach ($_GET['country'] as $country_selected) {
                         if ($i != $country_count) {
                           print $country_selected . ", ";
                         } else {
+                          // Fullstop after the last element.
                           print $country_selected . ".";
                         }
 
@@ -54,32 +92,42 @@
 
                         switch ($country_selected) {
                             case "France":
-                                $url[i] = "http://www.dcs.bbk.ac.uk/~ptw/teaching/IWT/coursework/fr.json";
+                                $url[i] = $base_url . "fr.json";
                                 $string = file_get_contents($url[i]);
                                 # Read the JSON output into an associative array
-                                $result  = json_decode($string);
-                                echo $result;
+                                $result  = json_decode($string, true);
+
+                                print "<div><h2>Try this</h2>";
+                                print_r($result['Geography']['Land boundaries']);
+                                print "<h2>The End</h2></div>";
                                 # Find out how many land boundaries details
                                 $num_geo = count($result['Geography']);
-                                print " Num of geo: " . $num_geo;
-                                for ($i = 0; $i < $num_geo; $i++) {
-                                  # Print out the details
-                                  $details = $result['Geography'][$i]['Land Boundaries'][$i];
-                                  $printme = var_dump($result['Geography'][$i]['Land Boundaries']['metropolitan France - total']['text']);
-                                  print "<li>in $printme to </li>\n";
+                                $num_land = count($result['Geography']['Land boundaries']);
+
+                                // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
+                                foreach ($result['Geography']['Land boundaries'] as $key => $value) {
+                                  echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
                                 }
-                                echo " URL: " . $url[i];
+                                
+                                for ($i = 0; $i < $num_geo; $i++) {
+                                  for($j = 0; $j < $num_land; $j++) {
+                                    # Print out the details
+                                    $details = $result['Geography']['Land boundaries']['text'];
+                                    print "<li>in " . $result['Geography'] . " to </li>\n";
+                                  }
+                                }
+                                echo "</ul> URL: " . $url[i];
                                 break;
                             case "Germany":
-                                $url[i] = "json/gm.json?";
+                                $url[i] = $base_url . "gm.json?";
                                 echo " URL: " . $url[i];
                                 break;
                             case "Italy":
-                                $url[i] = "json/it.json?";
+                                $url[i] = $base_url . "it.json?";
                                 echo " URL: " . $url[i];
                                 break;
                             case "UK":
-                                $url[i] = "json/uk.json?";
+                                $url[i] = $base_url . "uk.json?";
                                 echo " URL: " . $url[i];
                                 break;
                         }
