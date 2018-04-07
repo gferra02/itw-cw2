@@ -125,6 +125,40 @@ strong {
     font-weight: 700;
 }
 
+/* Table */
+
+table {
+    table-layout: fixed;
+    vertical-align: text-top;
+    width: 100%;
+}
+
+td {
+    background: lighten($brown, 70%);
+
+    &:nth-child(1) {
+        background: lighten($dark-navy, 70%);
+        font-weight: bold;
+    }
+}
+
+th {
+    background: $brown;
+    color: white;
+    text-align: left;
+
+    &:nth-child(1) {
+        background: $blue;
+        width: 150px;
+    }
+}
+
+td,
+th {
+    padding: 8px;
+    vertical-align: top;
+}
+
 
 /* 
  * TEMP STYLING

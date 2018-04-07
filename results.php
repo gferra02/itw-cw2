@@ -34,18 +34,18 @@
 
                     if ($property_count > 0 && $property_count < 6) {
 
-                        // print "<table><thead><tr><th>Country</th>";
+                        print "<table><thead><tr><th>Property</th>";
 
-                        // foreach ($_GET['property'] as $property_selected) {
-                        //     print "<th>$property_selected</th>";
-                        // }
+                        foreach ($_GET['country'] as $country_selected) {
+                            print "<th>$country_selected</th>";
+                        }
 
-                        // print "</tr></thead><tbody>";
+                        print "</tr></thead><tbody>";
 
                         foreach ($_GET['property'] as $property_selected) {
-                            // print "<tr>";
+                            print "<tr><td>$property_selected</td>";
                             foreach ($_GET['country'] as $country_selected) {
-                                print "<h3>" . $country_selected . "</h3>";
+                                print "<td>";
                                 // Path to json levels
                                 switch ($property_selected) {
                                   // Land boundaries, Coastline, Elevation
@@ -85,7 +85,7 @@
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
                                         // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<p><strong>' . $key . '</strong>: ' . $value['text'] . '</p>';
+                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
                                         }
                                         break;
                                     case "Germany":
@@ -97,7 +97,7 @@
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
                                         // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<p><strong>' . $key . '</strong>: ' . $value['text'] . '</p>';
+                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
                                         }
                                         break;
                                     case "Italy":
@@ -109,7 +109,7 @@
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
                                         // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<p><strong>' . $key . '</strong>: ' . $value['text'] . '</p>';
+                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
                                         }
                                         break;
                                     case "UK":
@@ -121,12 +121,15 @@
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
                                         // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<p><strong>' . $key . '</strong>: ' . $value['text'] . '</p>';
+                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
                                         }
                                         break;
                                 }
+                            print "</td>";
                             }
+                            print "</tr>";
                         }
+                        print "</tbody></table>";
 
                     } else {
                         // Basic error checking on properties
