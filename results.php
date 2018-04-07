@@ -155,7 +155,7 @@
 
                     } else {
                         // Basic error checking on properties
-                        print "<p class=\"error\">Please select between 1 and 5 properties.</p>";
+                        print "<p class=\"error\">Please select between 1 and 5 properties, no more, no less.</p>";
                     }
                 } else {
                     // Basic error checking on country
