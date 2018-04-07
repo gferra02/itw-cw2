@@ -48,31 +48,31 @@
                                 print "<td>";
                                 // Path to json levels
                                 switch ($property_selected) {
-                                  // Land boundaries, Coastline, Elevation
-                                  case "Land boundaries":
-                                  case "Coastline":
-                                  case "Elevation":
-                                    $path_to_data[j] = "Geography";
-                                    break;
+                                    // Land boundaries, Coastline, Elevation
+                                    case "Land boundaries":
+                                    case "Coastline":
+                                    case "Elevation":
+                                        $path_to_data[j] = "Geography";
+                                        break;
 
-                                  // Population, Median age
-                                  case "Population":
-                                  case "Median age":
-                                    $path_to_data[j] = "People and Society";
-                                    break;
+                                    // Population, Median age
+                                    case "Population":
+                                    case "Median age":
+                                        $path_to_data[j] = "People and Society";
+                                        break;
 
-                                  // Government type
-                                  case "Government type":
-                                    $path_to_data[j] = "Government";
-                                    break;
+                                    // Government type
+                                    case "Government type":
+                                        $path_to_data[j] = "Government";
+                                        break;
 
-                                  // GDP - per capita (PPP), Unemployment rate, Exports, Imports
-                                  case "GDP - per capita (PPP)":
-                                  case "Unemployment rate":
-                                  case "Exports":
-                                  case "Imports":
-                                    $path_to_data[j] = "Economy";
-                                    break;
+                                    // GDP - per capita (PPP), Unemployment rate, Exports, Imports
+                                    case "GDP - per capita (PPP)":
+                                    case "Unemployment rate":
+                                    case "Exports":
+                                    case "Imports":
+                                        $path_to_data[j] = "Economy";
+                                        break;
                                 }
 
                                 switch ($country_selected) {
@@ -85,43 +85,65 @@
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
                                         // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
+                                                if ($key != 'text') {
+                                                    //replace ++ with <br>
+                                                    $add_br = str_replace("++", "<br>", $value['text']);
+                                                    print '<strong>' . $key . '</strong>:<br>' . $add_br . '<br>';
+                                                } else {
+                                                    $add_br = str_replace("++", "<br>", $value);
+                                                    print $add_br . '<br>';
+                                                }
                                         }
                                         break;
                                     case "Germany":
                                         $url[i] = $base_url . "gm.json";
                                         $string = file_get_contents($url[i]);
-                                        # Read the JSON output into an associative array
+
                                         $result  = json_decode($string, true);
 
-                                        // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
-                                        // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
+                                                if ($key != 'text') {
+                                                    //replace ++ with <br>
+                                                    $add_br = str_replace("++", "<br>", $value['text']);
+                                                    print '<strong>' . $key . '</strong>:<br>' . $add_br . '<br>';
+                                                } else {
+                                                    $add_br = str_replace("++", "<br>", $value);
+                                                    print $add_br . '<br>';
+                                                }
                                         }
                                         break;
                                     case "Italy":
                                         $url[i] = $base_url . "it.json";
                                         $string = file_get_contents($url[i]);
-                                        # Read the JSON output into an associative array
+
                                         $result  = json_decode($string, true);
 
-                                        // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
-                                        // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
+                                                if ($key != 'text') {
+                                                    //replace ++ with <br>
+                                                    $add_br = str_replace("++", "<br>", $value['text']);
+                                                    print '<strong>' . $key . '</strong>:<br>' . $add_br . '<br>';
+                                                } else {
+                                                    $add_br = str_replace("++", "<br>", $value);
+                                                    print $add_br . '<br>';
+                                                }
                                         }
                                         break;
                                     case "UK":
                                         $url[i] = $base_url . "uk.json";
                                         $string = file_get_contents($url[i]);
-                                        # Read the JSON output into an associative array
+
                                         $result  = json_decode($string, true);
 
-                                        // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
-                                        // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
-                                          echo '<strong>' . $key . '</strong>: ' . $value['text'] . '<br>';
+                                                if ($key != 'text') {
+                                                    //replace ++ with <br>
+                                                    $add_br = str_replace("++", "<br>", $value['text']);
+                                                    print '<strong>' . $key . '</strong>:<br>' . $add_br . '<br>';
+                                                } else {
+                                                    $add_br = str_replace("++", "<br>", $value);
+                                                    print $add_br . '<br>';
+                                                }
                                         }
                                         break;
                                 }
