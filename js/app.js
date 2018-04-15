@@ -1,8 +1,7 @@
-// I am using the jQuery plugin 'table-to-json' to generate
-// a json array I can use to create the chart.
-// Source: https://github.com/lightswitch05/table-to-json
-
 $(document).ready(function() {
+    // I'm using jQuery to exctrat the data I need for the visualization
+    // from the table.
+    // I split in mini arrays and join them in one clean array in the end.
 
     // Get the th Country labels (exclude first th "Property")
     var countryLabels = [];
@@ -56,17 +55,17 @@ $(document).ready(function() {
     console.log(data);
 
     /*** Simple div graph ***/
-    d3.select(".chart")
-      .selectAll("div")
-        .data(data)
-      .enter().append("div")
-        .style("width", function(d) {
-            if (d > 20000) {
-                return d/1000000 + "%";
-            } else {
-                return d/100 + "%";
-            }
-        })
-        .text(function(d) { return d; });
+    // d3.select(".chart")
+    //   .selectAll("div")
+    //     .data(data)
+    //   .enter().append("div")
+    //     .style("width", function(d) {
+    //         if (d > 20000) {
+    //             return d/1000000 + "%";
+    //         } else {
+    //             return d/100 + "%";
+    //         }
+    //     })
+    //     .text(function(d) { return d; });
     /******/
 });
