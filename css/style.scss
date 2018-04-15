@@ -14,6 +14,11 @@ $brown: #35302F;
 $dark-navy: #16242F;
 $gray: #727072;
 
+$color-one: #4f5d75;
+$color-two: #e58734;
+$color-three: #09bc8a;
+$color-four: #276fbf;
+
 /* Globals */
 
 body {
@@ -181,15 +186,26 @@ th {
 /* Charts */
 
 .chart {
-
-    max-width: 100%;
-    overflow: scroll;
-
-    div {
-        background: $blue;
-        border-top: 1px solid;
+    [class*='bar'] {
+        border-top: 1px solid lighten($dark-navy, 80%);
         color: white;
         padding: 2px 5px;
+    }
+
+    .bar0 {
+        background: $color-one;
+    }
+
+    .bar1 {
+        background: $color-two;
+    }
+
+    .bar2 {
+        background: $color-three;
+    }
+
+    .bar3 {
+        background: $color-four;
     }
 }
 

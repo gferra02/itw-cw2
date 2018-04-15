@@ -176,9 +176,6 @@
             <div class="chart">
             </div>
 
-            <svg class="svg">
-            </svg>
-
             <p><a class="button" a href="index.html">< Back</a></p>
         </div>
     </main>

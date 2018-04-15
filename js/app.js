@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // I'm using jQuery to exctrat the data I need for the visualization
     // from the table.
-    // I split in mini arrays and join them in one clean array in the end.
+    // I split in mini arrays.
 
     // Get the th Country labels (exclude first th "Property")
     var countryLabels = [];
@@ -9,29 +9,27 @@ $(document).ready(function() {
     $("th").not(":first-child").each(function() {
         countryLabels.push($(this).text());
     });
-
-    console.log(countryLabels);
+    // console.log(countryLabels);
 
     // Get the property labels (first td only)
     var propertyLabels = [];
 
     $("tr.results").each(function () {
-        var innerArray = [];
+        var tdArray = [];
 
         $(this).find('td:first-child').each(function() {
-            innerArray.push($(this).text());
+            tdArray.push($(this).text());
         });
 
-        propertyLabels.push(innerArray);
+        propertyLabels.push(tdArray);
     });
-
-    console.log(propertyLabels);
+    // console.log(propertyLabels);
 
     // Get the values only
     var results = [];
 
     $("tr.results").each(function () {
-        var innerArray = [];
+        var tdArray = [];
 
         $(this).find('td').not(":first-child").each(function() {
             // Extract values from table and store them in an array
@@ -41,31 +39,39 @@ $(document).ready(function() {
             var cleanString = string.replace(/,/g,'');
             var numResult = cleanString.match(getFirstNum);
 
-            innerArray.push(numResult[0]);
+            tdArray.push(numResult[0]);
         });
 
-        results.push(innerArray);
+        results.push(tdArray);
     });
+    // console.log(results);
 
-    console.log(results);
+    // Trying to use .map() to create the right array
+    var thisMap = $.map(propertyLabels, function(p, c) {
+        // creating an object for every property
+        return { property: p, value: results[c] };
+    });
+    // console.log(thisMap);
 
-    // Combine the three arrays above to pass to D3JS
+    thisMap.forEach(function(d) {
+        var graph = d3.select('.chart');
+        graph.append('h3').text(d.property);
+            var max = d3.max(d.value);
+            console.log(max);
 
-    data = [countryLabels, propertyLabels, results];
-    console.log(data);
+        for(i = 0; i < d.value.length; i++) {
 
-    /*** Simple div graph ***/
-    // d3.select(".chart")
-    //   .selectAll("div")
-    //     .data(data)
-    //   .enter().append("div")
-    //     .style("width", function(d) {
-    //         if (d > 20000) {
-    //             return d/1000000 + "%";
-    //         } else {
-    //             return d/100 + "%";
-    //         }
-    //     })
-    //     .text(function(d) { return d; });
-    /******/
+            graph.append('div')
+            .attr("class", "bar"+i)
+            // .style("width", d.value[i]/100 + "%")
+            .style("width", function() {
+                if (d.value[i] == max) {
+                    return "100%";
+                } else {
+                    return d.value[i] * 100 / max + "%";
+                }
+            })
+            .text(d.value[i]);
+        }
+    });
 });
