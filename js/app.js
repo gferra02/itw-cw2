@@ -39,6 +39,10 @@ $(document).ready(function() {
             var cleanString = string.replace(/,/g,'');
             var numResult = cleanString.match(getFirstNum);
 
+            if (numResult == null) {
+                numResult = 0;
+            }
+
             tdArray.push(numResult[0]);
         });
 
@@ -56,14 +60,18 @@ $(document).ready(function() {
     thisMap.forEach(function(d) {
         var graph = d3.select('.chart');
         graph.append('h3').text(d.property);
+            // Not sure why, but d3.max() is returning some incorrect max values
+            // at times.
+            // Also, some data in the file use a dot instead of a comma
+            // Eg. $1.283 trillion instead of $1,283 trillion
+            // Causing some issues in the rendering of the charts
+
             var max = d3.max(d.value);
             console.log(max);
 
         for(i = 0; i < d.value.length; i++) {
-
             graph.append('div')
-            .attr("class", "bar"+i)
-            // .style("width", d.value[i]/100 + "%")
+            .attr("class", "bar" + i)
             .style("width", function() {
                 if (d.value[i] == max) {
                     return "100%";
@@ -71,7 +79,7 @@ $(document).ready(function() {
                     return d.value[i] * 100 / max + "%";
                 }
             })
-            .text(d.value[i]);
+            .text(countryLabels[i] + ": " + d.value[i]);
         }
     });
 });

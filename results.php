@@ -26,7 +26,7 @@
     </header>
     <main>
         <div class="wrapper">
-            <p><a class="button" a href="index.html">< Back</a></p>
+            <p><a class="button" href="index.html">< Back</a></p>
             <?php
                 /* Settings */
                 // Base URL
@@ -35,7 +35,9 @@
                 // Count how many Countries have been selected
                 $country_count = count($_GET['country']);
 
-                print "<p>No. of countries selected: " . $country_count . "</p>";
+                print "<p>No. of countries selected: " . $country_count . "</p>" .
+                    "<hr><p><a class=\"button secondary\" href=\"#nice-graph\">" .
+                    "<strong>See charts</strong></a></p>";
 
                 if(!empty($_GET['country'])) {
                     // Count how many properties have been selected
@@ -173,7 +175,7 @@
 
             <!-- Generate charts from tebale results -->
 
-            <div class="chart">
+            <div class="chart" id="nice-graph">
             </div>
 
             <p><a class="button" a href="index.html">< Back</a></p>

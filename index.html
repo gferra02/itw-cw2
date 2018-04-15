@@ -19,8 +19,13 @@
         <div class="wrapper">
             <p><em>I confirm that this report is entirely my own work, except where explicitly stated otherwise.</em></p>
 
-            <p><strong>Note: </strong> I have not uploaded my files on the Titan server, DCS space, because I tested them locally using <a href="https://www.mamp.info/en/">MAMP</a>.<br>
+            <p><strong>Note:</strong> I have not uploaded my files on the Titan server, DCS space, because I tested them locally using <a href="https://www.mamp.info/en/">MAMP</a>.<br>
             Also, I have used <code>foreach</code> loops instead of <code>for</code> loops, which implicates I had to add <code>[]</code> in the value for the checkboxes <code>name</code> attributes.</p>
+
+            <p><strong>Known issues:</strong> In rendering the visualizations, I've noticed that <code>d3.max()</code> returns odd values in some cases, but I wasn't able to find out why.<br>
+                Also, the dataset has some inconsistent rendering of values (eg. $1.000 trillion, instead of $1,000 trillion), causing the charts to display incorrect data.<br>
+                Finally, "Government type" is NaN, so it was cause an error with charts.
+            </p>
 
             <hr>
 

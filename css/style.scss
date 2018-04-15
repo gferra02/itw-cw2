@@ -80,6 +80,11 @@ button,
         background: darken($blue, 50%);
         color: white;
     }
+
+    &.secondary {
+        background: orange;
+        color: $dark-navy;
+    }
 }
 
 header,
@@ -207,18 +212,10 @@ th {
     .bar3 {
         background: $color-four;
     }
-}
 
-.svg {
-
-    rect {
-        fill: $blue;
-    }
-
-    text {
-        fill: white;
-        font: 10px sans-serif;
-        text-anchor: start;
+    h3 {
+        border-bottom: 1px solid $dark-navy;
+        margin-bottom: 10px;
     }
 }
 
