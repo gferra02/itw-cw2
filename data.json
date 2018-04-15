@@ -1,0 +1,98 @@
+[
+{
+    "Country": "France",
+    "Population": 66836154  
+},
+{
+    "Country" : "Germany",
+    "Population": 80722792
+},
+{
+    "Country" : "Italy",
+    "Population": 62007540
+},
+{
+    "Country" : "UK",
+    "Population": 64430428
+},
+{
+    "Country" : "France",
+    "Median Age" : 41.2
+},
+{
+    "Country" : "Germany",
+    "Median Age" : 46.8
+},
+{
+    "Country" : "Italy",
+    "Median Age" : 45.1
+},
+{
+    "Country" : "UK",
+    "Median Age" : 40.5
+},
+{
+    "Country" : "France",
+    "Freq" : 17
+},
+{
+    "Country" : "Germany",
+    "Freq" : 5
+},
+{
+    "Country" : "Italy",
+    "Freq" : 23
+},
+{
+    "Country" : "UK",
+    "Freq" : 39
+},
+{
+    "Country" : "France",
+    "Freq" : 29
+},
+{
+    "Country" : "Germany",
+    "Freq" : 33
+},
+{
+    "Country" : "Italy",
+    "Freq" : 18
+},
+{
+    "Country" : "UK",
+    "Freq" : 35
+},
+{
+    "Country" : "France",
+    "Freq" : 11
+},
+{
+    "Country" : "Germany",
+    "Freq" : 45
+},
+{
+    "Country" : "Italy",
+    "Freq" : 43
+},
+{
+    "Country" : "UK",
+    "Freq" : 28
+},
+{
+    "Country" : "France",
+    "Freq" : 26
+},
+{
+    "Country" : "Germany",
+    "Freq" : 30
+},
+{
+    "Country" : "Italy",
+    "Freq" : 5
+},
+{
+    "Country" : "UK",
+    "Freq" : 4
+}
+]

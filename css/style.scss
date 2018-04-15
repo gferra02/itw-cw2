@@ -178,25 +178,53 @@ th {
     padding: 10px 20px;
 }
 
+/* Charts */
+
+.chart {
+
+    max-width: 100%;
+    overflow: scroll;
+
+    div {
+        background: $blue;
+        border-top: 1px solid;
+        color: white;
+        padding: 2px 5px;
+    }
+}
+
+.svg {
+
+    rect {
+        fill: $blue;
+    }
+
+    text {
+        fill: white;
+        font: 10px sans-serif;
+        text-anchor: start;
+    }
+}
+
 /* Typography */
 
 /* Open Sans Condensed: https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700; */
 
 @font-face {
     font-family: 'Open Sans Condensed';
-    src: url('../assets/fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf') format('truetype');
+    src: url('../fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf') format('truetype');
     font-weight: 300;
 }
 
 @font-face {
     font-family: 'Open Sans Condensed';
-    src: url('../assets/fonts/Open_Sans_Condensed/OpenSansCondensed-LightItalic.ttf') format('truetype');
+    src: url('../fonts/Open_Sans_Condensed/OpenSansCondensed-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
 }
 
 @font-face {
     font-family: 'Open Sans Condensed';
-    src: url('../assets/fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf') format('truetype');
+    src: url('../fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf') format('truetype');
     font-weight: 700;
 }

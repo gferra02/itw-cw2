@@ -7,6 +7,15 @@
     <meta description="Results - Second coursework for Internet and Web Technologies module.">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- D3JS Library -->
+    <script src="js/d3.v3.min.js"></script>
+
+    <!-- My custom JS -->
+    <script src="js/app.js"></script>
 </head>
 <body>
     <header>
@@ -43,9 +52,9 @@
                         print "</tr></thead><tbody>";
 
                         foreach ($_GET['property'] as $property_selected) {
-                            print "<tr><td>$property_selected</td>";
+                            print "<tr class=\"results\"><td class=\"property\">$property_selected</td>";
                             foreach ($_GET['country'] as $country_selected) {
-                                print "<td>";
+                                print "<td class=\"content\">";
                                 // Path to json levels
                                 switch ($property_selected) {
                                     // Land boundaries, Coastline, Elevation
@@ -83,7 +92,6 @@
                                         $result  = json_decode($string, true);
 
                                         // Source: https://jonsuh.com/blog/convert-loop-through-json-php-javascript-arrays-objects/
-                                        // echo '<p>Property selected: ' . $property_selected . '</p>';
                                         foreach ($result[$path_to_data[j]][$property_selected] as $key => $value) {
                                                 if ($key != 'text') {
                                                     //replace ++ with <br>
@@ -162,6 +170,14 @@
                     print "<p class=\"error\">You need to select at least one country for me to give you something!</p>";
                 }
             ?>
+
+            <!-- Generate charts from tebale results -->
+
+            <div class="chart">
+            </div>
+
+            <svg class="svg">
+            </svg>
 
             <p><a class="button" a href="index.html">< Back</a></p>
         </div>
