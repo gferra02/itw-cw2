@@ -134,6 +134,31 @@ strong {
     font-weight: 700;
 }
 
+/* Form */
+
+.compare {
+    background: lighten($color-one, 40%);
+    padding: 20px;
+
+    h2 {
+        font-weight: bold;
+    }
+}
+
+fieldset {
+    border: 1px solid $brown;
+}
+
+fieldset,
+legend {
+    background: lighten($dark-navy, 85%);
+}
+
+legend {
+    box-shadow: inset 0 0 1px $brown;
+    padding: 2px 5px;
+}
+
 /* Table */
 
 table {

@@ -20,7 +20,7 @@
             <p><em>I confirm that this report is entirely my own work, except where explicitly stated otherwise.</em></p>
 
             <p><strong>Note:</strong> I have not uploaded my files on the Titan server, DCS space, because I tested them locally using <a href="https://www.mamp.info/en/">MAMP</a>.<br>
-                This coursework uses <strong>jQuery</strong> and <strong>D3JS</strong> libraries.<br>
+                This coursework uses <strong>jQuery</strong> and <strong>D3JS</strong> libraries and it should display correcly both in <strong>Chrome</strong> and <strong>Firefox</strong> (<strong>Safari</strong> seems okay too).<br>
             Also, I have used <code>foreach</code> loops instead of <code>for</code> loops, which implicates I had to add <code>[]</code> in the value for the checkboxes <code>name</code> attributes.</p>
 
             <p><strong>Known issues with charts:</strong> the dataset has some mixed values (eg. $1.000 trillion, but $1,000 billion), I didn't get the chance to parse the text to convert to a consistent number.<br>
@@ -30,78 +30,80 @@
 
             <hr>
 
-            <h2>Compare Countries</h2>
+            <div class="compare">
+                <h2>Compare Countries</h2>
 
-            <form id="compare" action="results.php" method="GET">
-                <fieldset>
-                    <legend>What Country/ies are you interested in?</legend>
-                    <div class="group">
-                        <input type="checkbox" id="fr" name="country[]" value="France">
-                        <label for="fr">France</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="it" name="country[]" value="Italy">
-                        <label for="it">Italy</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="de" name="country[]" value="Germany">
-                        <label for="de">Germany</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="gb" name="country[]" value="UK">
-                        <label for="gb">United Kingdom</label>
-                    </div>
-                </fieldset>
+                <form id="compare" action="results.php" method="GET">
+                    <fieldset>
+                        <legend>What Country/ies are you interested in?</legend>
+                        <div class="group">
+                            <input type="checkbox" id="fr" name="country[]" value="France">
+                            <label for="fr">France</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="it" name="country[]" value="Italy">
+                            <label for="it">Italy</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="de" name="country[]" value="Germany">
+                            <label for="de">Germany</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="gb" name="country[]" value="UK">
+                            <label for="gb">United Kingdom</label>
+                        </div>
+                    </fieldset>
 
-                <fieldset>
-                    <legend>Select max 5 properties</legend>
-                    <div class="group">
-                        <input type="checkbox" id="land" name="property[]" value="Land boundaries">
-                        <label for="land">Land boundaries</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="coastline" name="property[]" value="Coastline">
-                        <label for="coastline">Coastline</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="elevation" name="property[]" value="Elevation">
-                        <label for="elevation">Elevation</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="population" name="property[]" value="Population">
-                        <label for="">Population</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="age" name="property[]" value="Median age">
-                        <label for="age">Median age</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="unemployment" name="property[]" value="Unemployment rate">
-                        <label for="unemployment">Unemployment rate</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="govType" name="property[]" value="Government type">
-                        <label for="govType">Government type</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="gdp" name="property[]" value="GDP - per capita (PPP)">
-                        <label for="gdp">GDP - per capita (PPP)</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="exports" name="property[]" value="Exports">
-                        <label for="exports">Exports</label>
-                    </div>
-                    <div class="group">
-                        <input type="checkbox" id="imports" name="property[]" value="Imports">
-                        <label for="imports">Imports</label>
-                    </div>
-                </fieldset>
+                    <fieldset>
+                        <legend>Select max 5 properties</legend>
+                        <div class="group">
+                            <input type="checkbox" id="land" name="property[]" value="Land boundaries">
+                            <label for="land">Land boundaries</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="coastline" name="property[]" value="Coastline">
+                            <label for="coastline">Coastline</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="elevation" name="property[]" value="Elevation">
+                            <label for="elevation">Elevation</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="population" name="property[]" value="Population">
+                            <label for="">Population</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="age" name="property[]" value="Median age">
+                            <label for="age">Median age</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="unemployment" name="property[]" value="Unemployment rate">
+                            <label for="unemployment">Unemployment rate</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="govType" name="property[]" value="Government type">
+                            <label for="govType">Government type</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="gdp" name="property[]" value="GDP - per capita (PPP)">
+                            <label for="gdp">GDP - per capita (PPP)</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="exports" name="property[]" value="Exports">
+                            <label for="exports">Exports</label>
+                        </div>
+                        <div class="group">
+                            <input type="checkbox" id="imports" name="property[]" value="Imports">
+                            <label for="imports">Imports</label>
+                        </div>
+                    </fieldset>
 
-                <div class="button-group">
-                    <button class="submit" type="submit" id="trigger-results" form="compare">Compare</button>
-                    <button class="reset" type="reset">Reset</button>
-                </div>
-            </form>
+                    <div class="button-group">
+                        <button class="submit" type="submit" id="trigger-results" form="compare">Compare</button>
+                        <button class="reset" type="reset">Reset</button>
+                    </div>
+                </form>
+            </div>
 
             <hr>
 
