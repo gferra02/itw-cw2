@@ -176,6 +176,7 @@
             <!-- Generate charts from tebale results -->
 
             <div class="chart" id="nice-graph">
+                <h2>Graphs</h2>
             </div>
 
             <p><a class="button" a href="index.html">< Back</a></p>
